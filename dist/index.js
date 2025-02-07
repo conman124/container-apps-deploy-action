@@ -5494,7 +5494,7 @@ var ContainerAppHelper = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        command_6 = "docker build --file ".concat(dockerfilePath, " ").concat(appSourcePath, " --tag ").concat(imageToDeploy);
+                        command_6 = "docker build --cache-to type=gha --cache-from type=gha --file ".concat(dockerfilePath, " ").concat(appSourcePath, " --tag ").concat(imageToDeploy);
                         // If build arguments were provided, append them to the command
                         if (buildArguments.length > 0) {
                             buildArguments.forEach(function (buildArg) {
