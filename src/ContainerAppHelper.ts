@@ -478,7 +478,7 @@ export class ContainerAppHelper {
         buildArguments: string[]) {
         toolHelper.writeDebug(`Attempting to create a runnable application image from the provided/found Dockerfile "${dockerfilePath}" with image name "${imageToDeploy}"`);
         try {
-            let command = `docker build --file ${dockerfilePath} ${appSourcePath} --tag ${imageToDeploy}`;
+            let command = `docker build --cache-to type=gha --cache-from type=gha --file ${dockerfilePath} ${appSourcePath} --tag ${imageToDeploy}`;
             // If build arguments were provided, append them to the command
             if (buildArguments.length > 0) {
                 buildArguments.forEach(function (buildArg: string) {
